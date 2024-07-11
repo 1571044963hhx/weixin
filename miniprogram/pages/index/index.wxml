@@ -1,0 +1,46 @@
+<!-- 骨架屏 -->
+<import src="./skeleton/index.skeleton" />
+<template is="skeleton" wx:if="{{loading}}" />
+
+<view wx:else class="index-container">
+  <!--首页背景图-->
+  <view class="window-bgc"></view>
+
+  <!-- 页面主体区域 -->
+  <view class="container">
+    <!-- 轮播图区域 -->
+    <banner bannerList="{{bannerList}}" />
+
+    <!-- 导航分类 -->
+    <entrance categoryList="{{categoryList}}" />
+
+    <!-- 广告区域 -->
+    <view class="adver">
+      <view class="adver-left">
+        <navigator url="/modules/goodModule/pages/goods/list/list?category2Id=1">
+          <image src="/assets/images/love.jpg" mode="widthFix" />
+        </navigator>
+      </view>
+
+      <view class="adver-right">
+        <view>
+          <navigator url="/modules/goodModule/pages/goods/list/list?category2Id=2">
+            <image src="/assets/images/elder.jpg" mode="widthFix" />
+          </navigator>
+        </view>
+        <view>
+          <navigator url="/modules/goodModule/pages/goods/list/list?category2Id=3">
+            <image src="/assets/images/friend.jpg" mode="widthFix" />
+          </navigator>
+        </view>
+      </view>
+    </view>
+
+    <!-- 商品列表 -->
+    <goods-list title="猜你喜欢" list="{{guessList}}"></goods-list>
+    <goods-list title="人气推荐" list="{{hotList}}"></goods-list>
+  </view>
+</view>
+<!-- <button bind:tap="send">发送请求</button>
+<button bind:tap="sendall">发送并发请求</button>
+<button bind:tap="send1">注意事项</button> -->

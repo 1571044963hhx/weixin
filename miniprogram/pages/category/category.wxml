@@ -1,0 +1,23 @@
+<view>
+  <view class="category-container">
+    <!-- 左侧的滚动视图区域 -->
+    <scroll-view class="category-left-view" scroll-y>
+      <!-- 一级分类 -->
+      <view class="left-view-item {{activeIndex == index?'active':''}}" wx:for="{{list}}" wx:key="index" bind:tap="updateActive" data-index="{{index}}">{{item.name}}</view>
+      <!-- 使用自定义属性传参，传递的参数在event对象的currentTarget属性中 -->
+    </scroll-view>
+
+    <!-- 右侧的滚动视图区域 -->
+    <scroll-view class="category-right-view" scroll-y>
+      <!-- 二级分类 -->
+      <view>
+        <view wx:for="{{ list[activeIndex].children }}" wx:key="index" class="right-view-item">
+          <navigator class="navigator" url="/modules/goodModule/pages/goods/list/list?category2Id={{item.id}}">
+            <image class="" src="{{item.imageUrl}}"></image>
+            <text class="goods_item_name">{{item.name}}</text>
+          </navigator>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
